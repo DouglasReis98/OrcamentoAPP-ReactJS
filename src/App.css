@@ -1,3 +1,5 @@
+/*
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,11 @@
   to {
     transform: rotate(360deg);
   }
+}
+*/
+
+header h1 {
+    color: #fff;
+    text-align: center;
+    text-shadow: 3px 2px 15px rgb(8, 87, 1);
 }

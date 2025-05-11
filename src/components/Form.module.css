@@ -1,0 +1,69 @@
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+form div {
+    min-width: 60%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 500;
+    margin: 3px auto;
+}
+
+form label{
+    color: #fff;
+    font-weight: bold;
+    display: block;
+}
+
+#editItem{
+    width: 60%;
+    margin: 0 auto;
+    color: #005a0f;
+}
+
+#item, #qtde, #preco {
+    width: 100%;
+    font-size: 25px;
+    border: none;
+    outline: none;
+}
+
+#botoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#botoes input {
+    width: 50%;
+    height: 30px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#addItem{
+    background-color: #20bd01;
+}
+
+#addItem:hover{
+    background-color: #2bff00;
+}
+
+#addItem:active{
+    background-color: #0e5500;
+}
+
+#resetItem{
+    background-color: #d30000;
+}
+
+#resetItem:hover{
+    background-color: #ff0000;
+}
+
+#resetItem:active{
+    background-color: #720000;
+}
