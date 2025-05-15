@@ -1,25 +1,23 @@
-import { useEffect, useState } from 'react';
-import './App.css';
-import Footer from './components/Footer';
-import Form from './components/Form';
-import Tabela from './components/Tabela';
+import { useEffect, useState } from "react";
+import "./App.css";
+import Footer from "./components/Footer";
+import Form from "./components/Form";
+import Tabela from "./components/Tabela";
 function App() {
-
   const [arrItens, setArrItens] = useState([]);
   let editIndex = null;
 
   useEffect(() => {
     if (localStorage.getItem("itensOrcamento")) {
-  setArrItens(JSON.parse(localStorage.getItem("itensOrcamento")));
-}
-}, [])
+      setArrItens(JSON.parse(localStorage.getItem("itensOrcamento")));
+    }
+  }, []);
 
-useEffect(() => {
-  localStorage.setItem("itensOrcamento", JSON.stringify(arrItens)) 
-}, [arrItens])
+  useEffect(() => {
+    localStorage.setItem("itensOrcamento", JSON.stringify(arrItens));
+  }, [arrItens]);
 
-const cadastrarItem = (item, qtde, preco) => {
-
+  const cadastrarItem = (item, qtde, preco) => {
     if (editIndex === null) {
       const objItem = {
         Item: item,
@@ -29,7 +27,6 @@ const cadastrarItem = (item, qtde, preco) => {
 
       setArrItens([...arrItens, objItem]);
       localStorage.setItem("itensOrcamento", JSON.stringify(arrItens));
-
     } else {
       arrItens[editIndex] = {
         Item: item,
@@ -40,20 +37,18 @@ const cadastrarItem = (item, qtde, preco) => {
       arrItens.splice(editIndex, 1, arrItens[editIndex]);
       localStorage.setItem("itensOrcamento", JSON.stringify(arrItens));
       editIndex = null;
-
     }
-
-  }
+  };
 
   return (
     <div className="App">
       <header>
-                <h1>Orçamento APP</h1>
+        <h1>Orçamento APP</h1>
       </header>
 
-      <Form cadastrarItem={cadastrarItem}/>
-      <Tabela arrItens={arrItens}/>
-      <Footer/>
+      <Form cadastrarItem={cadastrarItem} />
+      <Tabela arrItens={arrItens} />
+      <Footer />
     </div>
   );
 }

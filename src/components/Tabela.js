@@ -47,7 +47,7 @@ const Tabela = ({arrItens, editIndex}) => {
           <tr>
             <td colSpan="5">
               <p>
-                Total: R$ <span id={style.total}>0,00</span>
+                Total: R$ <span id={style.total}>{total > 0 ? total : "0.00"}</span>
               </p>
             </td>
           </tr>
