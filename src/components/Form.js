@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "./Form.module.css";
-const Form = ({cadastrarItem}) => {
+const Form = ({adicionarItem, editarItem}) => {
   const [item, setItem] = useState("");
   const [qtde, setQtde] = useState("");
   const [preco, setPreco] = useState("");
@@ -9,7 +9,7 @@ const Form = ({cadastrarItem}) => {
     e.preventDefault();
 
     if (item !== "" && qtde !== isNaN && preco !== isNaN) {
-    cadastrarItem(item, qtde, preco)
+    adicionarItem(item, qtde, preco)
     
     setItem("");
     setQtde("");

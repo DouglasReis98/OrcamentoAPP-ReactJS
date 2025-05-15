@@ -4,20 +4,18 @@ import Footer from "./components/Footer";
 import Form from "./components/Form";
 import Tabela from "./components/Tabela";
 function App() {
-  const [arrItens, setArrItens] = useState([]);
-  let editIndex = null;
-
-  useEffect(() => {
-    if (localStorage.getItem("itensOrcamento")) {
-      setArrItens(JSON.parse(localStorage.getItem("itensOrcamento")));
-    }
-  }, []);
+  const [arrItens, setArrItens] = useState(() => {
+    const itensSalvos = localStorage.getItem("itensOrcamento");
+    return itensSalvos ? JSON.parse(itensSalvos) : [];
+  });
 
   useEffect(() => {
     localStorage.setItem("itensOrcamento", JSON.stringify(arrItens));
   }, [arrItens]);
 
-  const cadastrarItem = (item, qtde, preco) => {
+  let editIndex = null;
+
+  const adicionar = (item, qtde, preco) => {
     if (editIndex === null) {
       const objItem = {
         Item: item,
@@ -40,14 +38,26 @@ function App() {
     }
   };
 
+  const editar = (index, item, qtde, preco) => {
+    editIndex = index;
+    item = arrItens[index].Item;
+    qtde = arrItens[index].Quantidade;
+    preco = (arrItens[index].Preco / arrItens[index].Quantidade).toFixed(2);
+    //addItem.value = "Atualizar";
+  };
+
   return (
     <div className="App">
       <header>
         <h1>Orçamento APP</h1>
       </header>
 
-      <Form cadastrarItem={cadastrarItem} />
-      <Tabela arrItens={arrItens} />
+      <Form
+        editIndex={editIndex}
+        adicionarItem={adicionar}
+        editarItem={editar}
+      />
+      <Tabela arrItens={arrItens} editarItem={editar} />
       <Footer />
     </div>
   );

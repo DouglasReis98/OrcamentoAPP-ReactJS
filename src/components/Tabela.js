@@ -1,7 +1,11 @@
 import React from "react";
 import style from "./Tabela.module.css";
-const Tabela = ({arrItens, editIndex}) => {
-  
+const Tabela = ({arrItens, editIndex, editarItem}) => {
+  /*
+if (editIndex !== null) {
+  editarItem(editIndex, item, qtde, preco)
+}
+*/
   const total = arrItens
         .reduce((acumulador, num) => acumulador + parseFloat(num.Preco), 0)
         .toFixed(2);
