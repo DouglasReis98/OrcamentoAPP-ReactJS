@@ -1,6 +1,9 @@
 import React from "react";
-import style from "./Tabela.module.css";
-const Tabela = () => {
+import style from "./Tabela-Items.module.css";
+import Items from "./Items";
+const Tabela = ({arrItens, editIndex}) => {
+  
+
   return (
     <>
       <table id={style.tbOrcamento} border="2" align="center">
@@ -15,7 +18,9 @@ const Tabela = () => {
             <th colSpan="2">Ação</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          <Items arrItens={arrItens} editIndex={editIndex}/>
+        </tbody>
         <tfoot>
           <tr>
             <td colSpan="5">
