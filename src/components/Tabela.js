@@ -1,11 +1,6 @@
-import React from "react";
 import style from "./Tabela.module.css";
-const Tabela = ({arrItens, editIndex, editarItem}) => {
-  /*
-if (editIndex !== null) {
-  editarItem(editIndex, item, qtde, preco)
-}
-*/
+const Tabela = ({arrItens, editarItem, remover}) => {
+
   const total = arrItens
         .reduce((acumulador, num) => acumulador + parseFloat(num.Preco), 0)
         .toFixed(2);
@@ -33,10 +28,10 @@ if (editIndex !== null) {
                         <td>{e.Quantidade}</td>
                         <td>R$ {e.Preco}</td>
                         <td>
-                          <button id={style.btnEditar}>Editar</button>
+                          <button id={style.btnEditar} onClick={() => editarItem(i, i.item, i.qtde, i.preco)}>Editar</button>
                         </td>
                         <td>
-                          <button id={style.btnRemover}>Remover</button>
+                          <button id={style.btnRemover} onClick={() => remover(i)}>Remover</button>
                         </td>
                       </tr>
                     ))}

@@ -1,9 +1,5 @@
-import React, { useState } from "react";
 import style from "./Form.module.css";
-const Form = ({adicionarItem, editarItem}) => {
-  const [item, setItem] = useState("");
-  const [qtde, setQtde] = useState("");
-  const [preco, setPreco] = useState("");
+const Form = ({editIndex, item, qtde, preco, setItem, setQtde, setPreco, adicionarItem, reset}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,12 +11,9 @@ const Form = ({adicionarItem, editarItem}) => {
     setQtde("");
     setPreco("");
 
-    //exibirOrcamento();
   } else {
     alert("Os dados precisam ser inseridos!");
   }
-
-    console.log(item + " " + qtde + " " + preco + " ");
 
   };
 
@@ -58,8 +51,8 @@ const Form = ({adicionarItem, editarItem}) => {
         />
       </div>
       <div id={style.botoes}>
-        <input type="submit" id={style.addItem} value="Adicionar" />
-        <input type="reset" id={style.resetItem} value="Limpar" />
+        <input type="submit" id={style.addItem} value={editIndex === null ? "Adicionar" : "Atualizar"} />
+        <input type="reset" id={style.resetItem} value={editIndex === null ? "Limpar" : "Cancelar"} onClick={() => reset()} />
       </div>
     </form>
     
