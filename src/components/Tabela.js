@@ -52,7 +52,7 @@ const numberFormat = new Intl.NumberFormat("pt-BR", {
           <tr>
             <td colSpan="5">
               <p>
-                Total: R$ <span id={style.total}>{numberFormat.format(total > 0 ? total : "0,00")}</span>
+                Total: R$ <span id={style.total}>{numberFormat.format(total > 0 ? total : 0)}</span>
               </p>
             </td>
           </tr>
