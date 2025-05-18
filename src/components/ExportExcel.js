@@ -66,12 +66,17 @@ const ExportExcel = ({ dados, total, nomeArquivo }) => {
       // Estilizar a linha total
       linhaTotal.getCell("A").font = { bold: true };
       linhaTotal.getCell("A").alignment = { horizontal: "center" };
-
-      // Estiliza a linha total
-      linhaTotal.eachCell((cell) => {
+      linhaTotal.eachCell({ includeEmpty: true }, (cell) => {
         cell.font = { bold: true };
+        cell.fill = {
+          type: "pattern",
+          pattern: "solid",
+          fgColor: { argb: "000cff0c" },
+        };
       });
 
+      // Mescla as células A e B da linha do total
+      worksheet.mergeCells(`A${linhaTotal.number}:B${linhaTotal.number}`);
       worksheet.getCell(`C${linhaTotal.number}`).numFmt = '"R$" #,##0.00';
     } else {
       alert("Insira itens no orçamento!");
