@@ -52,13 +52,13 @@ const numberFormat = new Intl.NumberFormat("pt-BR", {
           <tr>
             <td colSpan="5">
               <p>
-                Total: R$ <span id={style.total}>{total > 0 ? total : "0,00"}</span>
+                Total: R$ <span id={style.total}>{numberFormat.format(total > 0 ? total : "0,00")}</span>
               </p>
             </td>
           </tr>
           <tr>
             <td colSpan="5">
-              <ExportExcel dados={arrItens} total={numberFormat.format(total)} nomeArquivo="orcamento"/>
+              <ExportExcel dados={arrItens} total={total} nomeArquivo="orcamento"/>
             </td>
           </tr>
         </tfoot>
