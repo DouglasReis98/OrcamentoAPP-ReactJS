@@ -66,7 +66,7 @@ function App() {
       const novoArrItens = [...arrItens];
       novoArrItens.splice(index, 1);
       localStorage.setItem("itensOrcamento", JSON.stringify(novoArrItens));
-      setArrItens(novoArrItens)
+      setArrItens(novoArrItens);
     }
   };
 
@@ -75,8 +75,9 @@ function App() {
       <header>
         <h1>Orçamento APP</h1>
       </header>
-      {editIndex !== null ? <h3 id="editItem" >Editando Item:   {arrItens[editIndex].Item}</h3> : null}
-      {console.log(editIndex)}
+      {editIndex !== null ? (
+        <h3 id="editItem">Editando Item: {arrItens[editIndex].Item}</h3>
+      ) : null}
       <Form
         editIndex={editIndex}
         item={item}

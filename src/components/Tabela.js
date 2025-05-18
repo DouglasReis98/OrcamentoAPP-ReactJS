@@ -1,5 +1,11 @@
+import ExportExcel from "./ExportExcel";
 import style from "./Tabela.module.css";
 const Tabela = ({arrItens, editarItem, remover}) => {
+
+const numberFormat = new Intl.NumberFormat("pt-BR", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
 
   const total = arrItens
         .reduce((acumulador, num) => acumulador + parseFloat(num.Preco), 0)
@@ -26,7 +32,7 @@ const Tabela = ({arrItens, editarItem, remover}) => {
                       <tr key={i}>
                         <td>{e.Item}</td>
                         <td>{e.Quantidade}</td>
-                        <td>R$ {e.Preco}</td>
+                        <td>R$ {numberFormat.format(e.Preco)}</td>
                         <td>
                           <button id={style.btnEditar} onClick={() => editarItem(i, i.item, i.qtde, i.preco)}>Editar</button>
                         </td>
@@ -46,13 +52,13 @@ const Tabela = ({arrItens, editarItem, remover}) => {
           <tr>
             <td colSpan="5">
               <p>
-                Total: R$ <span id={style.total}>{total > 0 ? total : "0.00"}</span>
+                Total: R$ <span id={style.total}>{total > 0 ? total : "0,00"}</span>
               </p>
             </td>
           </tr>
           <tr>
             <td colSpan="5">
-              <button id={style.baixar}>Baixar Arquivo</button>
+              <ExportExcel dados={arrItens} total={numberFormat.format(total)} nomeArquivo="orcamento"/>
             </td>
           </tr>
         </tfoot>
