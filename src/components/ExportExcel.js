@@ -82,6 +82,25 @@ const ExportExcel = ({ dados, total, nomeArquivo }) => {
       alert("Insira itens no orçamento!");
     }
 
+    // Ajustar automaticamente a largura das colunas
+    const ajustarLarguraColunas = (worksheet, larguraMinima = 10) => {
+      worksheet.columns.forEach((coluna) => {
+        let comprimentoMaximo = larguraMinima;
+        coluna.eachCell({ includeEmpty: true }, (celula) => {
+          const valor = celula.value;
+          if (valor) {
+            const comprimento = valor.toString().length;
+            if (comprimento > comprimentoMaximo) {
+              comprimentoMaximo = comprimento;
+            }
+          }
+        });
+
+        coluna.width = comprimentoMaximo + 2; // Adiconar um pequeno buffet
+      });
+    };
+    ajustarLarguraColunas(worksheet)
+
     // Gerar o arquivo Excel
     const buffer = await workbook.xlsx.writeBuffer();
     const blob = new Blob([buffer], {
