@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/OrcamentoAPP-ReactJS/static/css/main.0a441c20.css",
+    "main.js": "/OrcamentoAPP-ReactJS/static/js/main.e6a69968.js",
+    "static/js/453.75954599.chunk.js": "/OrcamentoAPP-ReactJS/static/js/453.75954599.chunk.js",
+    "index.html": "/OrcamentoAPP-ReactJS/index.html",
+    "main.0a441c20.css.map": "/OrcamentoAPP-ReactJS/static/css/main.0a441c20.css.map",
+    "main.e6a69968.js.map": "/OrcamentoAPP-ReactJS/static/js/main.e6a69968.js.map",
+    "453.75954599.chunk.js.map": "/OrcamentoAPP-ReactJS/static/js/453.75954599.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0a441c20.css",
+    "static/js/main.e6a69968.js"
+  ]
+}
