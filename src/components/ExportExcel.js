@@ -111,7 +111,7 @@ const ExportExcel = ({ dados, total, nomeArquivo }) => {
   return (
     <>
       <button id={style.baixar} onClick={exportarParaExcel}>
-        Baixar Arquivo
+        Baixar Planilha do Excel
       </button>
     </>
   );
