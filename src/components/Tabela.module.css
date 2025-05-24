@@ -74,3 +74,18 @@ tbody{
 #baixar:active{
     background-color: #004625;
 }
+
+#enviarPorEmail{
+    color: #000000;
+    border: none;
+    cursor: pointer;
+    background-color: #ffbb00;
+}
+
+#enviarPorEmail:hover{
+    background-color: #eeff00;
+}
+
+#enviarPorEmail:active{
+    background-color: #633800;
+}

@@ -1,3 +1,7 @@
+.App{
+    position: relative;
+}
+
 header h1 {
     color: #fff;
     text-align: center;

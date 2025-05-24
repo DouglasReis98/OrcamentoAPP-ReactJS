@@ -1,15 +1,15 @@
+import EnviarPorEmail from "./EnviarPorEmail";
 import ExportExcel from "./ExportExcel";
 import style from "./Tabela.module.css";
-const Tabela = ({arrItens, editarItem, remover}) => {
-
-const numberFormat = new Intl.NumberFormat("pt-BR", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
+const Tabela = ({ arrItens, editarItem, remover }) => {
+  const numberFormat = new Intl.NumberFormat("pt-BR", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
 
   const total = arrItens
-        .reduce((acumulador, num) => acumulador + parseFloat(num.Preco), 0)
-        .toFixed(2);
+    .reduce((acumulador, num) => acumulador + parseFloat(num.Preco), 0)
+    .toFixed(2);
 
   return (
     <>
@@ -27,38 +27,53 @@ const numberFormat = new Intl.NumberFormat("pt-BR", {
         </thead>
         <tbody>
           {arrItens.length > 0 ? (
-                  <>
-                    {arrItens.map((e, i) => (
-                      <tr key={i}>
-                        <td>{e.Item}</td>
-                        <td>{e.Quantidade}</td>
-                        <td>R$ {numberFormat.format(e.Preco)}</td>
-                        <td>
-                          <button id={style.btnEditar} onClick={() => editarItem(i, i.item, i.qtde, i.preco)}>Editar</button>
-                        </td>
-                        <td>
-                          <button id={style.btnRemover} onClick={() => remover(i)}>Remover</button>
-                        </td>
-                      </tr>
-                    ))}
-                  </>
-                ) : (
-                  <tr>
-                    <td colSpan="4">Não há itens para exibir!</td>
-                  </tr>
-                )}
+            <>
+              {arrItens.map((e, i) => (
+                <tr key={i}>
+                  <td>{e.Item}</td>
+                  <td>{e.Quantidade}</td>
+                  <td>R$ {numberFormat.format(e.Preco)}</td>
+                  <td>
+                    <button
+                      id={style.btnEditar}
+                      onClick={() => editarItem(i, i.item, i.qtde, i.preco)}
+                    >
+                      Editar
+                    </button>
+                  </td>
+                  <td>
+                    <button id={style.btnRemover} onClick={() => remover(i)}>
+                      Remover
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </>
+          ) : (
+            <tr>
+              <td colSpan="4">Não há itens para exibir!</td>
+            </tr>
+          )}
         </tbody>
         <tfoot>
           <tr>
             <td colSpan="5">
               <p>
-                Total: R$ <span id={style.total}>{numberFormat.format(total > 0 ? total : 0)}</span>
+                Total: R${" "}
+                <span id={style.total}>
+                  {numberFormat.format(total > 0 ? total : 0)}
+                </span>
               </p>
             </td>
           </tr>
           <tr>
             <td colSpan="5">
-              <ExportExcel dados={arrItens} total={total} nomeArquivo="orcamento"/>
+              <ExportExcel
+                dados={arrItens}
+                total={total}
+                nomeArquivo="orcamento"
+              />
+              <EnviarPorEmail/>
             </td>
           </tr>
         </tfoot>
