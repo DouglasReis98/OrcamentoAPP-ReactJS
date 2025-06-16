@@ -74,3 +74,18 @@ tbody{
 #baixar:active{
     background-color: #004625;
 }
+
+#enviar{
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    background-color: #df0000;
+}
+
+#enviar:hover{
+    background-color: #ff4444;
+}
+
+#enviar:active{
+    background-color: #460000;
+}

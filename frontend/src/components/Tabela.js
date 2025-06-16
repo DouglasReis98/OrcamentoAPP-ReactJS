@@ -1,3 +1,4 @@
+import EnviarEmail from "./EnviarEmail";
 import ExportExcel from "./ExportExcel";
 import style from "./Tabela.module.css";
 const Tabela = ({arrItens, editarItem, remover}) => {
@@ -59,6 +60,7 @@ const numberFormat = new Intl.NumberFormat("pt-BR", {
           <tr>
             <td colSpan="5">
               <ExportExcel dados={arrItens} total={total} nomeArquivo="orcamento"/>
+              <EnviarEmail/>
             </td>
           </tr>
         </tfoot>

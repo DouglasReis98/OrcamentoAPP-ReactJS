@@ -92,6 +92,7 @@ function App() {
       />
       <Tabela arrItens={arrItens} editarItem={editar} remover={remover} />
       <Footer />
+
     </div>
   );
 }
