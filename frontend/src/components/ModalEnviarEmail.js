@@ -1,6 +1,12 @@
 import style from "./ModalEnviarEmail.module.css";
 import {BsXCircleFill} from "react-icons/bs"
 const ModalEnviarEmail = ({ modal, setModal }) => {
+
+  const enviarEmail = (e) => {
+    e.preventDefault();
+    setModal(false);
+  }
+
   return (
     modal && (
       <div id={style.modal}>
@@ -9,7 +15,7 @@ const ModalEnviarEmail = ({ modal, setModal }) => {
         </div>
         <h1>Envie o seu Orçamento por Email!</h1>
         <div className={style.container}>
-          <form action="">
+          <form onSubmit={enviarEmail}>
             <div>
               <label htmlFor="nome">Nome:</label>
               <input type="text" name="nome" id="nome" />
