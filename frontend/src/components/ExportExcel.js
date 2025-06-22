@@ -3,7 +3,7 @@ import ExcelJS from "exceljs";
 import style from "./Tabela.module.css";
 import { saveAs } from "file-saver";
 
-const ExportExcel = ({ dados, total, nomeArquivo }) => {
+const ExportExcel = ({ dados, nomeArquivo }) => {
   const exportarParaExcel = async () => {
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet("Dados");
