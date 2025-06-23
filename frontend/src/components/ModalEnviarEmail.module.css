@@ -66,3 +66,15 @@ form textarea{
 #enviar_email:active{
     background-color: #0e5500;
 }
+
+#mensagem_envio {
+    position: absolute;
+    top: 0;
+    background-color: rgb(58, 182, 0);
+    color: white;
+    min-width: 60%;
+    height: 50px;
+    line-height: 40px;
+    border: 5px solid #0e5500;
+    font-weight: bold;
+}
