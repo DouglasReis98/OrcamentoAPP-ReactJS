@@ -2,12 +2,14 @@ import { useState } from "react";
 import style from "./ModalEnviarEmail.module.css";
 import { BsXCircleFill } from "react-icons/bs";
 import axios from "axios";
+import classNames from "classnames";
+
 const ModalEnviarEmail = ({ modal, setModal }) => {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [destEmail, setDestEmail] = useState("");
   const [mensagem, setMensagem] = useState("");
-
+  const [status, setStatus] = useState({ type: "", message: "" });
   const [flashMessage, setFlashMessage] = useState(false);
 
   const exibirFlashMessage = () => {
@@ -28,24 +30,32 @@ const ModalEnviarEmail = ({ modal, setModal }) => {
         mensagem,
         dados,
       });
-      exibirFlashMessage();
-
+      setStatus({ type: "success", message: "E-mail enviado com sucesso!" });
       setNome("");
       setEmail("");
       setDestEmail("");
       setMensagem("");
     } catch (error) {
       console.log(error);
+      const msg = error.response?.data || "Houve uma falha no envio!";
+      setStatus({ type: "error", message: msg });
     }
+    exibirFlashMessage();
     setModal(false);
   };
 
   return (
     <>
       {flashMessage && (
-        <section id={style.mensagem_envio}>E-mail enviado com sucesso!</section>
+        <section
+          className={classNames(
+            style.mensagem_envio,
+            status.type === "success" ? style.envioSucesso : style.envioFalha
+          )}
+        >
+          {status.message}
+        </section>
       )}
-
       {modal && (
         <div id={style.modal}>
           <div className={style.fechar_modal} onClick={setModal}>
