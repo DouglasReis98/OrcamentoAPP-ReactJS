@@ -1,12 +1,11 @@
 #modal{
-    position: absolute;
+    position: fixed;
     width: 100%;
     min-height: 100vh;
     background-color: rgba(0, 0, 0, .95);
     top: 0;
     left: 0;
-    margin: none;
-    padding: none;
+    padding: 0 10px;
 }
 
 #modal .fechar_modal{
@@ -29,23 +28,23 @@
     width: 80%;
 }
 
-.container{
+#modal .container{
     display: flex;
     justify-content: center;
 }
 
-form{
+#modal .container form{
     text-align: left;
     min-width: 70%;
 }
 
-form input, textarea{
+#modal .container form input, textarea{
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
 }
 
-form textarea{
+#modal .container form textarea{
     height: 200px;
 }
 
@@ -68,10 +67,12 @@ form textarea{
 }
 
 .mensagem_envio{
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 10px;
     color: white;
-    min-width: 60%;
+    left: 25%;
+    min-width: 50%;
+    margin: 0 auto;
     line-height: 40px;
     font-weight: bold;
 }

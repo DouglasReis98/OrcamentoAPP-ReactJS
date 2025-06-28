@@ -62,3 +62,10 @@ form label{
 #resetItem:active{
     background-color: #720000;
 }
+
+@media (max-width: 550px){
+    form div {
+    min-width: 100%;
+
+}
+}

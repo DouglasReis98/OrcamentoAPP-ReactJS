@@ -88,3 +88,9 @@ tbody{
 #enviar:active{
     background-color: #460000;
 }
+
+@media (max-width: 550px){
+ #tbOrcamento {
+    min-width: 100%;
+}
+}
