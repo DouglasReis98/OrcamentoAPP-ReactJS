@@ -72,7 +72,6 @@ form textarea{
     top: 0;
     color: white;
     min-width: 60%;
-    height: 50px;
     line-height: 40px;
     font-weight: bold;
 }
@@ -86,4 +85,18 @@ form textarea{
 .envioFalha {
     background-color: rgb(182, 0, 0);
     border: 5px solid #550000;
+}
+
+@media (max-width: 550px){
+
+    #modal h1{
+    font-size: 1.5em;
+    margin: 30px auto;
+    width: 80%;
+}
+
+    .mensagem_envio{
+    min-width:100%;
+    left: 0;
+}  
 }
