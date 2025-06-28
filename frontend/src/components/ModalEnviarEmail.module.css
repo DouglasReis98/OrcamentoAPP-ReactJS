@@ -58,6 +58,15 @@
     font-weight: bold;
 }
 
+#enviar_email:disabled{
+    background-color: #0a3b00;
+    cursor: auto;
+}
+
+#enviar_email:disabled:hover{
+    background-color: #0a3b00;
+}
+
 #enviar_email:hover{
     background-color: #2bff00;
 }
@@ -77,10 +86,10 @@
     font-weight: bold;
 }
 
+
 .envioSucesso {
     background-color: rgb(58, 182, 0);
     border: 5px solid #0e5500;
-
 }
 
 .envioFalha {

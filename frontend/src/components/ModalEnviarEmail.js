@@ -1,4 +1,4 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import style from "./ModalEnviarEmail.module.css";
 import { BsXCircleFill } from "react-icons/bs";
 import axios from "axios";
@@ -110,7 +110,7 @@ const ModalEnviarEmail = ({ modal, setModal }) => {
                 />
               </div>
               <div>
-                <button id={style.enviar_email} type="submit">
+                <button id={style.enviar_email} disabled={loading} type="submit">
                   {loading === true ? "Enviando..." : "Enviar"}
                 </button>
               </div>
