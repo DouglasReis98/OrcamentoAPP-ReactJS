@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import style from "./ModalEnviarEmail.module.css";
 import { BsXCircleFill } from "react-icons/bs";
 import axios from "axios";
@@ -10,6 +10,7 @@ const ModalEnviarEmail = ({ modal, setModal }) => {
   const [destEmail, setDestEmail] = useState("");
   const [mensagem, setMensagem] = useState("");
   const [status, setStatus] = useState({ type: "", message: "" });
+  const [loading, setLoading] = useState(false);
   const [flashMessage, setFlashMessage] = useState(false);
 
   const exibirFlashMessage = () => {
@@ -22,6 +23,7 @@ const ModalEnviarEmail = ({ modal, setModal }) => {
   const dados = JSON.parse(localStorage.getItem("itensOrcamento"));
   const enviarEmail = async (e) => {
     e.preventDefault();
+    setLoading(true)
     try {
       await axios.post(window.location.href + "enviar-email", {
         nome,
@@ -40,6 +42,7 @@ const ModalEnviarEmail = ({ modal, setModal }) => {
       const msg = error.response?.data || "Houve uma falha no envio!";
       setStatus({ type: "error", message: msg });
     }
+    setLoading(false)
     exibirFlashMessage();
     setModal(false);
   };
@@ -108,7 +111,7 @@ const ModalEnviarEmail = ({ modal, setModal }) => {
               </div>
               <div>
                 <button id={style.enviar_email} type="submit">
-                  Enviar
+                  {loading === true ? "Enviando..." : "Enviar"}
                 </button>
               </div>
             </form>
