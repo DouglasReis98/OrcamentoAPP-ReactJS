@@ -2,7 +2,11 @@ tbody{
     text-align: center;
 }
 
-#tbOrcamento {
+#tbOrcamento{
+    width: 100%;
+}
+
+#tbOrcamento table{
     min-width: 60%;
     border-collapse: collapse;
     border: 2px solid #fff;
@@ -47,11 +51,11 @@ tbody{
     background-color: rgb(124, 0, 0);
 }
 
-#tbOrcamento tfoot{
+#tbOrcamento table tfoot{
     text-align: center;
 }
 
-#tbOrcamento tfoot:nth-of-type(1){
+#tbOrcamento table tfoot:nth-of-type(1){
     font-size: 20px;
 }
 
@@ -90,7 +94,11 @@ tbody{
 }
 
 @media (max-width: 550px){
- #tbOrcamento {
-    min-width: 100%;
+ #tbOrcamento{
+    width: 100%;
+    overflow-x: auto;
 }
+
+ #tbOrcamento table{
+    width: 100%;}
 }

@@ -13,8 +13,8 @@ const numberFormat = new Intl.NumberFormat("pt-BR", {
         .toFixed(2);
 
   return (
-    <>
-      <table id={style.tbOrcamento} border="2" align="center">
+    <div id={style.tbOrcamento}>
+      <table border="2" align="center">
         <thead>
           <tr>
             <th colSpan="5">Itens Adicionados</th>
@@ -65,7 +65,7 @@ const numberFormat = new Intl.NumberFormat("pt-BR", {
           </tr>
         </tfoot>
       </table>
-    </>
+    </div>
   );
 };
 
