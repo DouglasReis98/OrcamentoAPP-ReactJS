@@ -100,13 +100,12 @@ const ModalEnviarEmail = ({ modal, setModal }) => {
                 />
               </div>
               <div>
-                <label htmlFor="mensagem">Mensagem:</label>
+                <label htmlFor="mensagem">Mensagem (opcional):</label>
                 <textarea
                   type="text"
                   name="mensagem"
                   value={mensagem}
                   onChange={(e) => setMensagem(e.target.value)}
-                  required
                 />
               </div>
               <div>
