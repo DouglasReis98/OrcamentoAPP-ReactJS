@@ -81,6 +81,7 @@ Projeto de aplicação para criação de orçamentos onde é possível baixá-lo
 ## Linguagens e Recursos Usados
 - JavaScript
 - ReactJS
+- CSS3
 - Node.js
 - Express.js
 
