@@ -11,13 +11,15 @@ form div {
     margin: 3px auto;
 }
 
-form label{
+form label {
     color: #fff;
     font-weight: bold;
     display: block;
 }
 
-#item, #qtde, #preco {
+#item,
+#qtde,
+#preco {
     width: 100%;
     font-size: 25px;
     border: none;
@@ -39,33 +41,43 @@ form label{
     cursor: pointer;
 }
 
-#addItem{
-    background-color: #20bd01;
+#addItem {
+    background-color: #20bc01;
 }
 
-#addItem:hover{
-    background-color: #2bff00;
+@media (hover: hover) {
+    #addItem:hover {
+        background-color: #2bff00;
+        text-shadow: 0 0 5px #000;
+
+    }
 }
 
-#addItem:active{
+
+#addItem:active {
     background-color: #0e5500;
 }
 
-#resetItem{
-    background-color: #d30000;
+#resetItem {
+    background-color: #ffd000;
+    color: #000 !important;
 }
 
-#resetItem:hover{
-    background-color: #ff0000;
+@media (hover: hover) {
+    #resetItem:hover {
+        background-color: #ffe570;
+    }
 }
 
-#resetItem:active{
-    background-color: #720000;
+
+#resetItem:active {
+    background-color: #756000;
+    color: #fff !important;
 }
 
-@media (max-width: 550px){
+@media (max-width: 550px) {
     form div {
-    min-width: 100%;
+        min-width: 100%;
 
-}
+    }
 }

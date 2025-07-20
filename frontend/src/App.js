@@ -1,9 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./App.css";
 import Footer from "./components/Footer";
 import Form from "./components/Form";
 import Tabela from "./components/Tabela";
 function App() {
+  const touchRef = useRef(false);
+
+  const handleTouchStart = () => {
+    touchRef.current = true
+  }
   const [arrItens, setArrItens] = useState(() => {
     const itensSalvos = localStorage.getItem("itensOrcamento");
     return itensSalvos ? JSON.parse(itensSalvos) : [];
@@ -51,6 +56,10 @@ function App() {
   };
 
   const reset = () => {
+    if (touchRef.current === true){
+      touchRef.current = false
+      return
+    }
     setEditIndex(null);
     setItem("");
     setQtde("");
@@ -89,8 +98,10 @@ function App() {
         adicionarItem={adicionar}
         editarItem={editar}
         reset={reset}
+        handleTouchStart={handleTouchStart}
       />
-      <Tabela arrItens={arrItens} editarItem={editar} remover={remover} />
+      <Tabela arrItens={arrItens} editarItem={editar} remover={remover} handleTouchStart={handleTouchStart}
+ />
       <Footer />
 
     </div>

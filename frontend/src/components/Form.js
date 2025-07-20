@@ -1,5 +1,5 @@
 import style from "./Form.module.css";
-const Form = ({editIndex, item, qtde, preco, setItem, setQtde, setPreco, adicionarItem, reset}) => {
+const Form = ({editIndex, item, qtde, preco, setItem, setQtde, setPreco, adicionarItem, reset, handleTouchStart}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,8 +51,8 @@ const Form = ({editIndex, item, qtde, preco, setItem, setQtde, setPreco, adicion
         />
       </div>
       <div id={style.botoes}>
-        <input type="submit" id={style.addItem} value={editIndex === null ? "Adicionar" : "Atualizar"} />
-        <input type="reset" id={style.resetItem} value={editIndex === null ? "Limpar" : "Cancelar"} onClick={() => reset()} />
+        <input type="submit" id={style.addItem} value={editIndex === null ? "Adicionar" : "Atualizar"} onTouchStart={() => handleTouchStart()} />
+        <input type="reset" id={style.resetItem} value={editIndex === null ? "Limpar" : "Cancelar"} onClick={() => reset()} onTouchStart={() => handleTouchStart()} />
       </div>
     </form>
     

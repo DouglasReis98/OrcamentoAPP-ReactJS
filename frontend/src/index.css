@@ -4,7 +4,7 @@
 }
 
 body {
-    background: linear-gradient( rgb(8, 87, 1), rgb(12, 255, 12));
-    background-size: cover;
+    background: url("img/cifrao.png") repeat-x center, linear-gradient( rgb(8, 87, 1), rgb(12, 255, 12)) ;
+    background-blend-mode: multiply;
     min-height: 100vh;
 }

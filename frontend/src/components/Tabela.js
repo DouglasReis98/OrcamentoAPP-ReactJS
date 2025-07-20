@@ -1,7 +1,7 @@
 import EnviarEmail from "./EnviarEmail";
 import ExportExcel from "./ExportExcel";
 import style from "./Tabela.module.css";
-const Tabela = ({arrItens, editarItem, remover}) => {
+const Tabela = ({arrItens, editarItem, remover, handleTouchStart}) => {
 
 const numberFormat = new Intl.NumberFormat("pt-BR", {
       minimumFractionDigits: 2,
@@ -14,7 +14,7 @@ const numberFormat = new Intl.NumberFormat("pt-BR", {
 
   return (
     <div id={style.tbOrcamento}>
-      <table border="2" align="center">
+      <table align="center">
         <thead>
           <tr>
             <th colSpan="5">Itens Adicionados</th>
@@ -35,10 +35,10 @@ const numberFormat = new Intl.NumberFormat("pt-BR", {
                         <td>{e.Quantidade}</td>
                         <td>R$ {numberFormat.format(e.Preco)}</td>
                         <td>
-                          <button id={style.btnEditar} onClick={() => editarItem(i, i.item, i.qtde, i.preco)}>Editar</button>
+                          <button id={style.btnEditar} onClick={() => editarItem(i, i.item, i.qtde, i.preco)} onTouchStart={() => handleTouchStart}>Editar</button>
                         </td>
                         <td>
-                          <button id={style.btnRemover} onClick={() => remover(i)}>Remover</button>
+                          <button id={style.btnRemover} onClick={() => remover(i)} onTouchStart={() => handleTouchStart}>Remover</button>
                         </td>
                       </tr>
                     ))}
@@ -57,15 +57,10 @@ const numberFormat = new Intl.NumberFormat("pt-BR", {
               </p>
             </td>
           </tr>
-          <tr>
-            <td colSpan="5">
-              <ExportExcel dados={arrItens} total={total} nomeArquivo="orcamento"/>
-              <EnviarEmail/>
-            </td>
-          </tr>
         </tfoot>
       </table>
-    </div>
+    <ExportExcel dados={arrItens} total={total} nomeArquivo="orcamento" onTouchStart={() => handleTouchStart}/>
+              <EnviarEmail onTouchStart={() => handleTouchStart}/></div>
   );
 };
 
